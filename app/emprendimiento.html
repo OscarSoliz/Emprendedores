@@ -9,7 +9,7 @@
     <meta name="description" content="">
     <meta name="author" content="">
 
-    <title>Emprendedor</title>
+    <title>Emprendimiento</title>
 
     <!-- Bootstrap Core CSS -->
     <link href="styles/bootstrap.min.css" rel="stylesheet">
@@ -28,11 +28,12 @@
         <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
     <![endif]-->
 
+
 </head>
 
 <body>
     <div ng-controller="MainCtrl">
-    <div class="brand">Emprendedor</div>
+    <div class="brand">Emprendimiento</div>
     <div class="address-bar"></div>
 
     <!-- Navigation -->
@@ -56,7 +57,7 @@
                         <a href="index.html">Principal</a>
                     </li>
                     <li>
-                        <a href="emprendimiento.html">Emprendimiento</a>
+                        <a href="emprendedor.html">Emprendedor</a>
                     </li>
                     <li>
                         <a href="organizacion.html">Organizacion</a>
@@ -81,83 +82,122 @@
                 <div class="col-lg-12">
                     <hr>
                     <h2 class="intro-text text-center">Formulario
-                        <strong>Emprendedor</strong>
+                        <strong>Emprendimiento</strong>
                     </h2>
                     <hr>
-                    <p>si es nuevo emprendedor favor de llenar el formulario</p>
+                    <p>si es nuevo emprendimiento favor de llenar el formulario</p>
                     <form role="form">
                         <div class="row">
                             <div class="form-group col-lg-4">
                                 <label>Nombre</label>
-                                <input id="nombre-emprendedor" type="text" class="form-control">
+                                <input id="nombre-emprendimiento" type="text" class="form-control">
                             </div>
                             <div class="form-group col-lg-4">
-                                <label>Apellido</label>
-                                <input id="apellido-emprendedor" type="email" class="form-control">
+                                <label>Correo</label>
+                                <input id="email-emprendimiento" type="email" class="form-control">
                             </div>
                             
                         </div>
                          <div class="row">
                             <div class="form-group col-lg-4">
-                                <label>Carnet de Identidad</label>
-                                <input id="ci-emprendedor" type="text" class="form-control">
+                                <label>Pagina web</label>
+                                <input id="pagina-web-emprendimiento" type="text" class="form-control">
                             </div>
                             <div class="form-group col-lg-4">
-                                <label>lugar de nacimiento</label>
-                                <select id="lugar-nacimiento-emprendedor" type="text" class="form-control">
-                                    <option value="Santa Cruz">Santa Cruz</option>
-                                    <option value="La Paz">La Paz</option>
-                                    <option value="Tarija">Tarija</option>
-                                    <option value="Oruro">Oruro</option>
-                                    <option value="Pando">Pando</option>
-                                    <option value="Potosi">Potosi</option>
-                                    <option value="Beni">Beni</option>
-                                    <option value="Chuquisaca">Chuquisaca</option>
-                                    
-                                </select>
+                                <label>Representante</label>
+                                <input id="representante-emprendimiento" type="text" class="form-control">
                             </div>
                             
                         </div>
                         <div class="row">
                             <div class="form-group col-lg-4">
                                     <label>Direccion</label>
-                                    <input id="direccion-emprendedor" type="tel" class="form-control">
+                                    <input id="direccion-emprendimiento" type="tel" class="form-control">
                             </div>
                             <div class="form-group col-lg-4">
-                                    <label>Sexo</label>
-                                    <select id="sexo-emprendedor" class="form-control">
-                                        <option value="m">Masculino</option>
-                                        <option value="f">Femenino</option>
+                                    <label>Registrado en fundaempresa?</label>
+                                    <select id="registro-funde-emprendimiento" class="form-control">
+                                        <option value="true">si</option>
+                                        <option value="false">no</option>
                                     </select>
                             </div>
                         </div>
+                         <div class="row">
+                            <label>localizacion del emprendimiento</label>
+                            <div id="mapa-emprendimiento" style='width: 500px;height: 200px;'></div>
+                        </div>
+
+                       
+                        <script>
+
+var map;
+function initMap() {
+
+
+  map = new google.maps.Map(document.getElementById('mapa-emprendimiento'), {
+    center: {lat: -17.784483, lng: -63.180058},
+    zoom: 12
+  });
+var marker = new google.maps.Marker({
+ });
+   
+google.maps.event.addListener(map, 'click', function(event) {
+marker.setPosition(event.latLng);
+marker.setMap(map);
+marker.setAnimation(google.maps.Animation.DROP);
+});
+
+}
+
+
+function addMarker(location, map) {
+  // Add the marker at the clicked location, and add the next-available label
+  // from the array of alphabetical characters.
+    var  marker = new google.maps.Marker({
+    position: location,
+    map: map
+  });
+}
+    </script>
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyA5pcAIH-G-1qKkMLBFX-QOGtX1XY8RuI4&callback=initMap"
+        async defer></script>
+
+
+
                         <div class="row">
-                            <div class="form-group col-lg-4">
-                                    <label>Telefono</label>
-                                    <input id="telefono-emprendedor" type="tel" class="form-control">
-                            </div>
-                            <div class="form-group col-lg-4">
-                                    <label>e-mail</label>
-                                    <input id="email-emprendedor" type="tel" class="form-control">
+                            <div class="form-group col-lg-8">
+                                    <label>Unidad de Responsabilidad Social</label>
+                                    <textarea id="resp-social-emprendimiento" class="form-control" rows="6"></textarea>
                             </div>
                             
                         </div>
                         <div class="row">
-                            <div class="form-group col-lg-4">
-                                    <label>año egresado</label>
-                                    <input id="anho-egresado-emprendedor" type="tel" class="form-control">
-                            </div>
-                            <div class="form-group col-lg-4">
-                                     <div class="form-group">
-                                    <label>Universidad</label>
-                                    <select id="universidad-emprendedor" class="form-control"></select>
-                            </div>
+                            <div class="form-group col-lg-8">
+                                    <label>Unidad Informatica</label>
+                                    <textarea id="unidad-informatica-emprendimiento" class="form-control" rows="6"></textarea>
                             </div>
                         </div>
                         <div class="row">
                             <div class="form-group col-lg-4">
-                                    <label>carrera</label>
-                                    <select id="carrera-emprendedor" class="form-control"></select>
+                                    <label>Tamaño del Emprendimiento</label>
+                                    <select id="registro-funde-emprendimiento" class="form-control">
+                                        <option value="pequeño">pequeño</option>
+                                        <option value="mediano">mediano</option>
+                                        <option value="grande">grande</option>
+                                    </select>
+                            </div>
+                            <div class="form-group col-lg-4">
+                                    <label>apoyo por organizacion</label>
+                                    <select id="registro-funde-emprendimiento" class="form-control">
+                                        <option value="pequeño"> </option>
+                                        <option value="pequeño">organizacion 1</option>
+                                        <option value="mediano">organizacion 2</option>
+                                        <option value="grande">organizacion 3</option>
+                                    </select>
+                            </div>
+                             <div class="form-group col-lg-1">
+                              <label> </label>
+                            <button class="btn btn-default">agregar apoyo</button>
                             </div>
                         </div>
                         <!--<div class="row">
@@ -194,7 +234,7 @@
                             </div>-->
                             <div class="form-group col-lg-4">
                                
-                                <button id="boton-guardar-emprendedor" class="btn btn-default">guardar</button>
+                                <button id="boton-guardar" class="btn btn-default">guardar</button>
                             </div>
                            
                             <div class="form-group col-lg-4">
@@ -247,7 +287,7 @@
                     
 
 
-        $("#boton-guardar-emprendedor").click(function(){
+        $("#boton-guardar").click(function(){
             
            var query = {
 
@@ -259,7 +299,7 @@
                  sexo: $("#sexo-emprendedor").val(),
                  celular: $("#telefono-emprendedor").val(),
                  correo: $("#email-emprendedor").val(),
-                 anho_graduado: $("#anho-egresado-emprendedor").val(),
+                 anho_graduado: $("#anho_graduado-emprendedor").val(),
                  carrera: $("#carrera-emprendedor").val(),
                  id_universidad: $("#carrera-emprendedor").val()
 
@@ -270,7 +310,7 @@
             $.ajax({
                 dataType: "json",
                 data:JSON.stringify(query),
-                url: "http://localhost:9090",
+                url: "http://192.168.1.6:9090",
                 cache: false,
                 method: 'POST',
                 success: function(rsp) {
@@ -281,15 +321,21 @@
 
 
 
-          /* $.post("http://10.255.167.98:9090", query, function(data, status){
+           /* $.post("http://192.168.1.6:9090", query, function(data, status){
 
                 alert("Data: " + data + "\nStatus: " + status);
             });*/
         });
 
-        });
-        
+    });
+    
+    
+    
+
     </script>
+   
+
+
 </div>
 </body>
 

@@ -114,7 +114,7 @@
                                     <strong>Emprendimiento</strong>
                                 </h4>
                                 <p>para nuevos y existentes emprendimientos</p>
-                                <a href="#" class="btn btn-light">entrar</a>
+                                <a href="emprendimiento.html" class="btn btn-light">entrar</a>
                             </div>
                         </div>
                         <div class="col-md-3 col-sm-6">
@@ -127,7 +127,7 @@
                                     <strong>Organizacion</strong>
                                 </h4>
                                 <p>Para nuevos y existentes organizaciones</p>
-                                <a href="#" class="btn btn-light">entrar</a>
+                                <a href="organizacion.html" class="btn btn-light">entrar</a>
                             </div>
                         </div>
                          <div class="col-md-3 col-sm-6">
@@ -140,7 +140,7 @@
                                     <strong>Universidad</strong>
                                 </h4>
                                 <p>Nuevas y existentes universidades</p>
-                                <a href="#" class="btn btn-light">Entrar</a>
+                                <a href="universidad.html" class="btn btn-light">Entrar</a>
                             </div>
                         </div> 
                     </div>
@@ -173,12 +173,42 @@
   
     <!-- Map -->
     <section id="contact" class="map">
-        <iframe width="100%" height="100%" frameborder="0" scrolling="no" marginheight="0" marginwidth="0" src="https://www.google.com/maps/embed/v1/place?q=Santa+Cruz,+Bolivia&key=AIzaSyAN0om9mFmy1QN6Wf54tXAowK4eT0ZUPrU"></iframe>
-        <br />
-        <small>
-            <a href="https://maps.google.com/maps?f=q&amp;source=embed&amp;hl=en&amp;geocode=&amp;q=Twitter,+Inc.,+Market+Street,+San+Francisco,+CA&amp;aq=0&amp;oq=twitter&amp;sll=28.659344,-81.187888&amp;sspn=0.128789,0.264187&amp;ie=UTF8&amp;hq=Twitter,+Inc.,+Market+Street,+San+Francisco,+CA&amp;t=m&amp;z=15&amp;iwloc=A"></a>
-        </small>
-        </iframe>
+        <div id="map" style="width:100%; height:100%;"></div>
+
+        <script>
+
+var map;
+function initMap() {
+  map = new google.maps.Map(document.getElementById('map'), {
+    center: {lat: -17.764637, lng: -63.133900},
+    zoom: 12
+  });
+
+
+var marker = new google.maps.Marker({
+    position: {lat: -17.784483, lng: -63.180058},
+    map: map
+  });
+var marker = new google.maps.Marker({
+    position: {lat: -17.794483, lng: -63.180058},
+    map: map
+  });
+var marker = new google.maps.Marker({
+    position: {lat: -17.734483, lng: -63.170058},
+    map: map
+  });
+var marker = new google.maps.Marker({
+    position: {lat: -17.834483, lng: -63.150058},
+    map: map
+  });
+}
+
+    </script>
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyA5pcAIH-G-1qKkMLBFX-QOGtX1XY8RuI4&callback=initMap"
+        async defer></script>
+
+
+
     </section>
 
     <!-- Footer -->
