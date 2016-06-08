@@ -1,0 +1,353 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <title>organizacion</title>
+
+    <!-- Bootstrap Core CSS -->
+    <link href="styles/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Custom CSS -->
+    <link href="styles/business-casual.css" rel="stylesheet">
+
+    <!-- Fonts -->
+    <link href="http://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800" rel="stylesheet" type="text/css">
+    <link href="http://fonts.googleapis.com/css?family=Josefin+Slab:100,300,400,600,700,100italic,300italic,400italic,600italic,700italic" rel="stylesheet" type="text/css">
+
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+        <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+
+
+</head>
+
+<body>
+    <div ng-controller="MainCtrl">
+    <div class="brand">organizacion</div>
+    <div class="address-bar"></div>
+
+    <!-- Navigation -->
+    <nav class="navbar navbar-default" role="navigation">
+        <div class="container">
+            <!-- Brand and toggle get grouped for better mobile display -->
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <!-- navbar-brand is hidden on larger screens, but visible when the menu is collapsed -->
+                <a class="navbar-brand" href="index.html">Business Casual</a>
+            </div>
+            <!-- Collect the nav links, forms, and other content for toggling -->
+            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                <ul class="nav navbar-nav">
+                    <li>
+                        <a href="index.html">Principal</a>
+                    </li>
+                    <li>
+                        <a href="emprendedor.html">Emprendedor</a>
+                    </li>
+                    <li>
+                        <a href="emprendimiento.html">Emprendimiento</a>
+                    </li>
+                    <li>
+                        <a href="universidad.html">Universidad</a>
+                    </li>
+                    
+                </ul>
+            </div>
+            <!-- /.navbar-collapse -->
+        </div>
+        <!-- /.container -->
+    </nav>
+
+    <div class="container">
+
+      
+
+        <div class="row">
+            <div class="box">
+                <div class="col-lg-12">
+                    <hr>
+                    <h2 class="intro-text text-center">Formulario
+                        <strong>organizacion</strong>
+                    </h2>
+                    <hr>
+                    <p>si es nuevo organizacion favor de llenar el formulario</p>
+                    <form role="form">
+                        <div class="row">
+                            <div class="form-group col-lg-4">
+                                <label>Nombre</label>
+                                <input id="nombre-organizacion" type="text" class="form-control">
+                            </div>
+                            <div class="form-group col-lg-4">
+                                <label>Correo</label>
+                                <input id="email-organizacion" type="email" class="form-control">
+                            </div>
+                            
+                        </div>
+                         <div class="row">
+                            <div class="form-group col-lg-4">
+                                <label>Pagina web</label>
+                                <input id="pagina-web-organizacion" type="text" class="form-control">
+                            </div>
+                            <div class="form-group col-lg-4">
+                                <label>Representante</label>
+                                <input id="representante-organizacion" type="text" class="form-control">
+                            </div>
+                            
+                        </div>
+                        <div class="row">
+                            <div class="form-group col-lg-4">
+                                    <label>Direccion</label>
+                                    <input id="direccion-organizacion" type="tel" class="form-control">
+                            </div>
+                            <div class="form-group col-lg-4">
+                                    <label>tipo de empresa</label>
+                                    <select id="tipo-empresa-organizacion" class="form-control">
+                                        <option value="true">Unipersonal</option>
+                                        <option value="false">Sociedad Colectiva</option>
+                                        <option value="false">Cooperativas</option>
+                                        <option value="false">Comanditarias</option>
+                                        <option value="false">Sociedad de responsabilidad limitada</option>
+                                        <option value="false">Sociedad anónima</option>
+                                    </select>
+                            </div>
+                             
+                        </div>
+                         <div class="row">
+                            <label>localizacion del organizacion</label>
+                            <div id="mapa-organizacion" style='width: 500px;height: 200px;'></div>
+                        </div>
+
+                       
+                        <script>
+
+var map;
+function initMap() {
+
+
+  map = new google.maps.Map(document.getElementById('mapa-organizacion'), {
+    center: {lat: -17.784483, lng: -63.180058},
+    zoom: 12
+  });
+var marker = new google.maps.Marker({
+ });
+   
+google.maps.event.addListener(map, 'click', function(event) {
+marker.setPosition(event.latLng);
+marker.setMap(map);
+marker.setAnimation(google.maps.Animation.DROP);
+});
+
+}
+
+
+function addMarker(location, map) {
+  // Add the marker at the clicked location, and add the next-available label
+  // from the array of alphabetical characters.
+    var  marker = new google.maps.Marker({
+    position: location,
+    map: map
+  });
+}
+    </script>
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyA5pcAIH-G-1qKkMLBFX-QOGtX1XY8RuI4&callback=initMap"
+        async defer></script>
+
+
+
+                        <div class="row">
+                            <div class="form-group col-lg-4">
+                                    <label>año de fundacion</label>
+                                    <input id="anho-fund-emprendedor" type="tel" class="form-control">
+                            </div>
+                            
+                        </div>
+                        <div class="row">
+                            <div class="form-group col-lg-8">
+                                    <label>proposito</label>
+                                    <textarea id="proposito-organizacion" class="form-control" rows="6"></textarea>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="form-group col-lg-8">
+                                    <label>Area de intervencion</label>
+                                    <textarea id="area-intervencion-organizacion" class="form-control" rows="6"></textarea>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="form-group col-lg-4">
+                                    <label>Sector orientado</label>
+                                    <select id="sector-organizacion" class="form-control">
+                                        <option value="true">sector primario</option>
+                                        <option value="false">sector secundario</option>
+                                        <option value="false">sector terciario</option>
+                                    </select>
+                            </div>
+                            <div class="form-group col-lg-4">
+                                    <label>apoya a emprendimiento</label>
+                                    <select id="registro-funde-emprendimiento" class="form-control">
+                                        <option value="pequeño"></option>
+                                        <option value="pequeño">emprendimiento 1</option>
+                                        <option value="mediano">emprendimiento 2</option>
+                                        <option value="grande">emprendimiento 3</option>
+                                    </select>
+                            </div>
+                            <div class="form-group col-lg-1">
+                              <label> </label>
+                            <button class="btn btn-default">agregar apoyo</button>
+                            </div>
+                        </div>
+                        <!--<div class="row">
+                            <div class="form-group col-lg-8">
+                                    <label>Logros, Premios, Menciones</label>
+                                    <textarea id="logros-emprendedor" class="form-control" rows="6"></textarea>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="form-group col-lg-4">
+                                    <label>Sitio Web</label>
+                                    <input id="web-emprendedor" type="tel" class="form-control">
+                            </div>
+                            <div class="form-group col-lg-4">
+                                    <label>Skype</label>
+                                    <input id="skype-emprendedor" type="tel" class="form-control">
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="form-group col-lg-4">
+                                    <label>Facebook</label>
+                                    <input id="facebook-emprendedor" type="tel" class="form-control">
+                            </div>
+                            <div class="form-group col-lg-4">
+                                    <label>Twitter</label>
+                                    <input id="twitter-emprendedor" type="tel" class="form-control">
+                            </div>
+                        </div>-->
+                    </form>
+                            <div class="clearfix"></div>
+                           <!--<div class="form-group col-lg-12">
+                                <label>Message</label>
+                                <textarea class="form-control" rows="6"></textarea>
+                            </div>-->
+                            <div class="form-group col-lg-4">
+                               
+                                <button id="boton-guardar" class="btn btn-default">guardar</button>
+                            </div>
+                           
+                            <div class="form-group col-lg-4">
+                                <input type="hidden" name="save" >
+                                <button class="btn btn-default">Modificar</button>
+                            </div>
+                            <div class="form-group col-lg-4">
+                                <input type="hidden" name="save" >
+                                <button class="btn btn-default">Eliminar</button>
+                            </div>
+                    
+                </div>
+            </div>
+        </div>
+
+    </div>
+    <!-- /.container -->
+    <footer>
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12 text-center">
+                    <p>Copyright &copy; Your Website 2014</p>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- jQuery -->
+    <script src="scripts/jquery.js"></script>
+<script src="bower_components/jquery/dist/jquery.js"></script>
+    <!-- Bootstrap Core JavaScript -->
+    <script src="scripts/bootstrap.min.js"></script>
+    <script type="text/javascript" >
+
+        $(document).ready(function () {
+        
+
+         
+                        /*query.nombre= $("#nombre-emprendedor").value;
+                         query.apellido= $("#apellido-emprendedor").value;
+                         query.ci= $("#ci-emprendedor").value;
+                         query.lugar_de_nacimiento= $("#lugar_de_nacimiento-emprendedor").val();
+                         query.direccion= $("#direccion-emprendedor").value;
+                         query.sexo= $("#sexo-emprendedor").val();
+                         query.celular= $("#telefono-emprendedor").value;
+                         query.correo= $("#email-emprendedor").value;
+                         query.anho_graduado= $("#anho_graduado-emprendedor").value;
+                         query.carrera= $("#carrera-emprendedor").value;
+                         query.id_universidad= $("#carrera-emprendedor").value;*/
+                    
+
+
+        $("#boton-guardar").click(function(){
+            
+           var query = {
+
+                 nombre: $("#nombre-emprendedor").val(),
+                 apellido: $("#apellido-emprendedor").val(),
+                 ci: $("#ci-emprendedor").val(),
+                 lugar_de_nacimiento: $("#lugar-nacimiento-emprendedor").val(),
+                 direccion: $("#direccion-emprendedor").val(),
+                 sexo: $("#sexo-emprendedor").val(),
+                 celular: $("#telefono-emprendedor").val(),
+                 correo: $("#email-emprendedor").val(),
+                 anho_graduado: $("#anho_graduado-emprendedor").val(),
+                 carrera: $("#carrera-emprendedor").val(),
+                 id_universidad: $("#carrera-emprendedor").val()
+
+            }
+
+            console.log(query);
+            
+            $.ajax({
+                dataType: "json",
+                data:JSON.stringify(query),
+                url: "http://192.168.1.6:9090",
+                cache: false,
+                method: 'POST',
+                success: function(rsp) {
+                    alert(JSON.stringify(rsp));
+                var Content = rsp;
+                }
+            });
+
+
+
+           /* $.post("http://192.168.1.6:9090", query, function(data, status){
+
+                alert("Data: " + data + "\nStatus: " + status);
+            });*/
+        });
+
+    });
+    
+    
+    
+
+    </script>
+   
+
+
+</div>
+</body>
+
+</html>
